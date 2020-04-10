@@ -9,6 +9,7 @@ public class CollectorHarness {
         System.out.println("Partitioning done in: " + execute(PartitionPrimeNumbers::partitionPrimesWithCustomCollector) + " msecs" );
     }
 
+    // TODO 做了什么？
     private static long execute(Consumer<Integer> primePartitioner) {
         long fastest = Long.MAX_VALUE;
         for (int i = 0; i < 10; i++) {

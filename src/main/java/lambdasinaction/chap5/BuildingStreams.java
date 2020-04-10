@@ -23,7 +23,7 @@ public class BuildingStreams {
 
         // Stream.iterate
         Stream.iterate(0, n -> n + 2)
-              .limit(10)
+              .limit(10) // 限制数字个数，而非值的大小
               .forEach(System.out::println);
 
         // fibonnaci with iterate
@@ -66,12 +66,13 @@ public class BuildingStreams {
               };
          IntStream.generate(fib).limit(10).forEach(System.out::println);
 
-         long uniqueWords = Files.lines(Paths.get("lambdasinaction/chap5/data.txt"), Charset.defaultCharset())
-                                 .flatMap(line -> Arrays.stream(line.split(" ")))
-                                 .distinct()
-                                 .count();
-
-         System.out.println("There are " + uniqueWords + " unique words in data.txt");
+         // delete by aaron because the txt is not exists 2020-04-07 11:08:27
+         // long uniqueWords = Files.lines(Paths.get("lambdasinaction/chap5/data.txt"), Charset.defaultCharset())
+         //                         .flatMap(line -> Arrays.stream(line.split(" ")))
+         //                         .distinct()
+         //                         .count();
+         //
+         // System.out.println("There are " + uniqueWords + " unique words in data.txt");
 
 
     }

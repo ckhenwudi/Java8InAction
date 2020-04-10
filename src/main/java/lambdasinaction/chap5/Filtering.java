@@ -1,43 +1,46 @@
 package lambdasinaction.chap5;
+
 import lambdasinaction.chap4.*;
 
 import java.util.stream.*;
 import java.util.*;
+
 import static java.util.stream.Collectors.toList;
 
 import static lambdasinaction.chap4.Dish.menu;
 
-public class Filtering{
+public class Filtering {
 
-    public static void main(String...args){
+    public static void main(String... args) {
 
         // Filtering with predicate
         List<Dish> vegetarianMenu =
-            menu.stream()
-                .filter(Dish::isVegetarian)
-                .collect(toList());
+                menu.stream()
+                        .filter(Dish::isVegetarian)
+                        .collect(toList());
 
         vegetarianMenu.forEach(System.out::println);
 
         // Filtering unique elements
         List<Integer> numbers = Arrays.asList(1, 2, 1, 3, 3, 2, 4);
         numbers.stream()
-               .filter(i -> i % 2 == 0)
-               .distinct()
-               .forEach(System.out::println);
+                .filter(i -> i % 2 == 0)
+                .distinct()
+                .forEach(System.out::println);
 
         // Truncating a stream
-        List<Dish> dishesLimit3 =
-            menu.stream()
+        List<Dish> dishesLimit3 = menu.stream()
                 .filter(d -> d.getCalories() > 300)
+                // add by aaron add sort and reverse 2020-04-07 11:36:00 start
+                .sorted(Comparator.comparing(Dish::getCalories).reversed())
+                // add by aaron add sort and reverse 2020-04-07 11:36:00 end
                 .limit(3)
                 .collect(toList());
 
         dishesLimit3.forEach(System.out::println);
 
         // Skipping elements
-        List<Dish> dishesSkip2 =
-            menu.stream()
+        List<Dish> dishesSkip2 = menu.stream()
                 .filter(d -> d.getCalories() > 300)
                 .skip(2)
                 .collect(toList());

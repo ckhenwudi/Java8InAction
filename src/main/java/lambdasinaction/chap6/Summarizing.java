@@ -42,6 +42,7 @@ public class Summarizing {
         return menu.stream().collect(averagingInt(Dish::getCalories));
     }
 
+    // 强！
     private static IntSummaryStatistics calculateMenuStatistics() {
         return menu.stream().collect(summarizingInt(Dish::getCalories));
     }

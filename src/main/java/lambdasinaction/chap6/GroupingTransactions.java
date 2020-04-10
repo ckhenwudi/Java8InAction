@@ -6,19 +6,19 @@ import static java.util.stream.Collectors.groupingBy;
 
 public class GroupingTransactions {
 
-    public static List<Transaction> transactions = Arrays.asList( new Transaction(Currency.EUR, 1500.0),
-                                                                  new Transaction(Currency.USD, 2300.0),
-                                                                  new Transaction(Currency.GBP, 9900.0),
-                                                                  new Transaction(Currency.EUR, 1100.0),
-                                                                  new Transaction(Currency.JPY, 7800.0),
-                                                                  new Transaction(Currency.CHF, 6700.0),
-                                                                  new Transaction(Currency.EUR, 5600.0),
-                                                                  new Transaction(Currency.USD, 4500.0),
-                                                                  new Transaction(Currency.CHF, 3400.0),
-                                                                  new Transaction(Currency.GBP, 3200.0),
-                                                                  new Transaction(Currency.USD, 4600.0),
-                                                                  new Transaction(Currency.JPY, 5700.0),
-                                                                  new Transaction(Currency.EUR, 6800.0) );
+    public static List<Transaction> transactions = Arrays.asList( new Transaction(CurrencyEnum.EUR, 1500.0),
+                                                                  new Transaction(CurrencyEnum.USD, 2300.0),
+                                                                  new Transaction(CurrencyEnum.GBP, 9900.0),
+                                                                  new Transaction(CurrencyEnum.EUR, 1100.0),
+                                                                  new Transaction(CurrencyEnum.JPY, 7800.0),
+                                                                  new Transaction(CurrencyEnum.CHF, 6700.0),
+                                                                  new Transaction(CurrencyEnum.EUR, 5600.0),
+                                                                  new Transaction(CurrencyEnum.USD, 4500.0),
+                                                                  new Transaction(CurrencyEnum.CHF, 3400.0),
+                                                                  new Transaction(CurrencyEnum.GBP, 3200.0),
+                                                                  new Transaction(CurrencyEnum.USD, 4600.0),
+                                                                  new Transaction(CurrencyEnum.JPY, 5700.0),
+                                                                  new Transaction(CurrencyEnum.EUR, 6800.0) );
     public static void main(String ... args) {
         groupImperatively();
         groupFunctionally();
@@ -26,9 +26,9 @@ public class GroupingTransactions {
     }
 
     private static void groupImperatively() {
-        Map<Currency, List<Transaction>> transactionsByCurrencies = new HashMap<>();
+        Map<CurrencyEnum, List<Transaction>> transactionsByCurrencies = new HashMap<>();
         for (Transaction transaction : transactions) {
-            Currency currency = transaction.getCurrency();
+            CurrencyEnum currency = transaction.getCurrencyEnum();
             List<Transaction> transactionsForCurrency = transactionsByCurrencies.get(currency);
             if (transactionsForCurrency == null) {
                     transactionsForCurrency = new ArrayList<>();
@@ -41,21 +41,21 @@ public class GroupingTransactions {
     }
 
     private static void groupFunctionally() {
-        Map<Currency, List<Transaction>> transactionsByCurrencies = transactions.stream().collect(groupingBy(Transaction::getCurrency));
+        Map<CurrencyEnum, List<Transaction>> transactionsByCurrencies = transactions.stream().collect(groupingBy(Transaction::getCurrencyEnum));
         System.out.println(transactionsByCurrencies);
     }
 
     public static class Transaction {
-        private final Currency currency;
+        private final CurrencyEnum currencyEnum;
         private final double value;
 
-        public Transaction(Currency currency, double value) {
-            this.currency = currency;
+        public Transaction(CurrencyEnum currency, double value) {
+            this.currencyEnum = currency;
             this.value = value;
         }
 
-        public Currency getCurrency() {
-            return currency;
+        public CurrencyEnum getCurrencyEnum() {
+            return currencyEnum;
         }
 
         public double getValue() {
@@ -64,11 +64,11 @@ public class GroupingTransactions {
 
         @Override
         public String toString() {
-            return currency + " " + value;
+            return currencyEnum + " " + value;
         }
     }
 
-    public enum Currency {
+    public enum CurrencyEnum {
         EUR, USD, JPY, GBP, CHF
     }
 }
