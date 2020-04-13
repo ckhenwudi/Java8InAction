@@ -13,6 +13,7 @@ public class WordCount {
 
     public static void main(String[] args) {
         System.out.println("Found " + countWordsIteratively(SENTENCE) + " words");
+        // TODO read more
         System.out.println("Found " + countWords(SENTENCE) + " words");
     }
 

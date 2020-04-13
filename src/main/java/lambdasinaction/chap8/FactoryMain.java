@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-
+/**
+ * supplier<T>
+ */
 public class FactoryMain {
 
     public static void main(String[] args) {
@@ -14,7 +16,6 @@ public class FactoryMain {
         Product p2 = loanSupplier.get();
 
         Product p3 = ProductFactory.createProductLambda("loan");
-
     }
 
     static private class ProductFactory {
