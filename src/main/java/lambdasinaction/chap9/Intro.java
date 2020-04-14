@@ -13,5 +13,7 @@ public class Intro{
         // naturalOrder is a static method
         numbers.sort(Comparator.naturalOrder());
         System.out.println(numbers);
+        numbers.sort(Comparator.comparing(Integer::intValue).reversed());
+        System.out.println(numbers);
    }
 }

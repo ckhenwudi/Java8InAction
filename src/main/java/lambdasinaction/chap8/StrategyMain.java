@@ -10,7 +10,6 @@ public class StrategyMain {
         Validator v2 = new Validator(new IsAllLowerCase ());
         System.out.println(v2.validate("bbbb"));
 
-
         // with lambdas
         Validator v3 = new Validator((String s) -> s.matches("\\d+"));
         System.out.println(v3.validate("aaaa"));

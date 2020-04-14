@@ -2,6 +2,9 @@ package lambdasinaction.chap9;
 
 import java.util.function.Function;
 
+/**
+ * Function
+ */
 public class Letter{
     public static String addHeader(String text){
         return "From Raoul, Mario and Alan:" + text;
