@@ -59,5 +59,14 @@ public class MappingAndFlatMapping {
                 return new int[]{n, m};
             });
         }).collect(Collectors.toList());
+
+        // 单个元素抓换
+        List<Integer> list1 = Arrays.asList(1, 2, 3).stream().map(t -> t * 2).collect(Collectors.toList());
+
+        List<Integer> list2 = Arrays.asList(1, 2, 3).stream().flatMap(t -> {
+            return Stream.of(t * 2);
+        }).collect(Collectors.toList());
+
+        System.out.println("1111111");
     }
 }

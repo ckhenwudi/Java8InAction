@@ -3,6 +3,9 @@ package lambdasinaction.chap11;
 import java.util.List;
 import java.util.function.Supplier;
 
+/**
+ * 异步计算future completableFuture parallel
+ */
 public class BestPriceFinderMain {
 
     private static BestPriceFinder bestPriceFinder = new BestPriceFinder();

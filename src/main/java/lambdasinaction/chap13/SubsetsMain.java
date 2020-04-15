@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 全部子集
+ */
 public class SubsetsMain {
 
     public static void main(String[] args) {

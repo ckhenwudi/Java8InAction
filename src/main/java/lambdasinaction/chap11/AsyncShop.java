@@ -35,7 +35,7 @@ public class AsyncShop {
 
     private double calculatePrice(String product) {
         delay();
-        if (true) throw new RuntimeException("product not available");
+        // if (true) throw new RuntimeException("product not available");
         return format(random.nextDouble() * product.charAt(0) + product.charAt(1));
     }
 

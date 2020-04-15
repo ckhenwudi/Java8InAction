@@ -47,6 +47,8 @@ public class DateTimeExamples {
         Calendar calendar = Calendar.getInstance();
         calendar.set(2014, Calendar.FEBRUARY, 18);
         System.out.println(calendar);
+
+        System.out.println();
     }
 
     private static void useLocalDate() {
@@ -59,9 +61,9 @@ public class DateTimeExamples {
         boolean leap = date.isLeapYear(); // false (not a leap year)
         System.out.println(date);
 
-        int y = date.get(ChronoField.YEAR);
-        int m = date.get(ChronoField.MONTH_OF_YEAR);
-        int d = date.get(ChronoField.DAY_OF_MONTH);
+        int y = date.get(ChronoField.YEAR); // 2014
+        int m = date.get(ChronoField.MONTH_OF_YEAR); // 3
+        int d = date.get(ChronoField.DAY_OF_MONTH); // 18
 
         LocalTime time = LocalTime.of(13, 45, 20); // 13:45:20
         int hour = time.getHour(); // 13
@@ -94,6 +96,8 @@ public class DateTimeExamples {
 
         JapaneseDate japaneseDate = JapaneseDate.from(date);
         System.out.println(japaneseDate);
+
+        System.out.println();
     }
 
     private static void useTemporalAdjuster() {
@@ -120,6 +124,8 @@ public class DateTimeExamples {
             return temporal.plus(dayToAdd, ChronoUnit.DAYS);
         });
         System.out.println(date);
+
+        System.out.println();
     }
 
     private static class NextWorkingDay implements TemporalAdjuster {
@@ -152,6 +158,8 @@ public class DateTimeExamples {
                 .toFormatter(Locale.ITALIAN);
 
         System.out.println(date.format(complexFormatter));
+
+        System.out.println();
     }
 
 }
