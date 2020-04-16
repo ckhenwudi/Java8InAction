@@ -71,12 +71,12 @@ public class PersistentTree {
 
     public static Tree fupdate(String k, int newval, Tree t) {
         return (t == null) ?
-            new Tree(k, newval, null, null) :
-             k.equals(t.key) ?
-               new Tree(k, newval, t.left, t.right) :
-          k.compareTo(t.key) < 0 ?
-            new Tree(t.key, t.val, fupdate(k,newval, t.left), t.right) :
-            new Tree(t.key, t.val, t.left, fupdate(k,newval, t.right));
-   }
+                new Tree(k, newval, null, null) :
+                k.equals(t.key) ?
+                        new Tree(k, newval, t.left, t.right) :
+                        k.compareTo(t.key) < 0 ?
+                                new Tree(t.key, t.val, fupdate(k, newval, t.left), t.right) :
+                                new Tree(t.key, t.val, t.left, fupdate(k, newval, t.right));
+    }
 
 }

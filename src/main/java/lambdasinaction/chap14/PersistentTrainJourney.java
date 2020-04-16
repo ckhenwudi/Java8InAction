@@ -13,9 +13,9 @@ public class PersistentTrainJourney {
         System.out.println();
 
         // A new TrainJourney is created without altering tj1 and tj2.
-        TrainJourney appended2 = append(tj1, tj2);
-        visit(appended2, tj -> { System.out.print(tj.price + " - "); });
-        System.out.println();
+        // TrainJourney appended2 = append(tj1, tj2);
+        // visit(appended2, tj -> { System.out.print(tj.price + " - "); });
+        // System.out.println();
 
         // tj1 is altered but it's still not visible in the results.
         TrainJourney linked = link(tj1, tj2);

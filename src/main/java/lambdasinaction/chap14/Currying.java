@@ -2,7 +2,6 @@ package lambdasinaction.chap14;
 
 import java.util.function.DoubleUnaryOperator;
 
-
 public class Currying {
 
     public static void main(String[] args) {

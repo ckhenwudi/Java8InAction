@@ -9,7 +9,7 @@ public class LazyLists {
         MyList<Integer> l = new MyLinkedList<>(5, new MyLinkedList<>(10,
                 new Empty<Integer>()));
 
-        System.out.println(l.head());
+        System.out.println(l.head()); // 5
 
         LazyList<Integer> numbers = from(2);
         int two = numbers.head();
